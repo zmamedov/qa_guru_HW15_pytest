@@ -1,8 +1,14 @@
 import pytest
 from selene import browser, be
 
-desktop_only = pytest.mark.parametrize("browser_management_desktop", [(1920, 1080), (1280, 720)], indirect=True)
-mobile_only = pytest.mark.parametrize("browser_management_mobile", [(414, 896)], indirect=True)
+desktop_only = pytest.mark.parametrize("browser_management_desktop",
+                                       [(1920, 1080), (1280, 720)],
+                                       indirect=True,
+                                       ids=['Full HD', 'HD'])
+mobile_only = pytest.mark.parametrize("browser_management_mobile",
+                                      [(414, 896)],
+                                      indirect=True,
+                                      ids=['IPhone XR'])
 
 
 @desktop_only
